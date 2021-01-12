@@ -1,0 +1,47 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=z, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            function Usuario(nombre, apellido, libros, mascotas){
+                this.nombre = nombre;
+                this.apellido = apellido;
+                this.libros = libros;
+                this.mascotas = mascotas;
+
+                this.getFullName = function(){
+                    return `${this.nombre} ${this.apellido}`
+                }
+
+                this.addMascota = function(mascota){
+                    this.mascotas.push(mascota);
+                }
+
+                this.getMascotas = function(){
+                    return this.mascotas.length;
+                }
+
+                this.addBook = function(book, author){
+                    this.libros.push({nombre: book, author: author});
+                }
+
+                this.getBooks = function(){
+                    return libros.map(l => l.nombre);
+                }
+            }
+
+            const usuario = new Usuario('Estrella', 'Portocarrero', [], []);
+
+            console.log(usuario.getFullName());
+
+            usuario.addMascota('Cleo');
+            console.log(usuario.getMascotas());
+            
+            usuario.addBook("The Queen's Gambit", "Walter Tevis");
+            console.log(usuario.getBooks());
+        </script>
+    </body>
+</html>
