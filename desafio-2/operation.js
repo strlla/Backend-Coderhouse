@@ -37,24 +37,20 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 var numbers_1 = require("./numbers");
-var ops = './operations.ts';
 var operation = function (n1, n2, op) { return __awaiter(void 0, void 0, void 0, function () {
-    var module, e_1;
     return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                _a.trys.push([0, 3, , 4]);
-                return [4 /*yield*/, Promise.resolve().then(function () { return require(ops); })];
-            case 1:
-                module = _a.sent();
-                return [4 /*yield*/, module["default"].operation(n1, n2, op)];
-            case 2: return [2 /*return*/, _a.sent()];
-            case 3:
-                e_1 = _a.sent();
-                console.log('Hubo un error: ' + e_1);
-                return [3 /*break*/, 4];
-            case 4: return [2 /*return*/];
+        //cargar un modulo para realizar tal operacion
+        try {
+            switch (op.toUpperCase()) {
+                case 'SUMA': return [2 /*return*/, n1 + n2];
+                case 'RESTA': return [2 /*return*/, n1 - n2];
+                default: break;
+            }
         }
+        catch (e) {
+            console.log('Hubo un error: ' + e);
+        }
+        return [2 /*return*/];
     });
 }); };
 var operations = function (fun) { return fun; };

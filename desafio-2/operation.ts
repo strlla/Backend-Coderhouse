@@ -1,11 +1,13 @@
 import Numbers from './numbers';
-const ops = './operations.ts';
 
 const operation = async (n1: number, n2: number, op: string): Promise<number | undefined> => {
     //cargar un modulo para realizar tal operacion
     try {
-        const module = await import(ops);
-        return await module.default.operation(n1, n2, op);
+        switch (op.toUpperCase()) {
+            case 'SUMA': return n1 + n2;
+            case 'RESTA': return n1 - n2;
+            default: break;
+        }
     } catch (e) {
         console.log('Hubo un error: ' + e);
     }
