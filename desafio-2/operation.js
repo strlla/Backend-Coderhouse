@@ -54,5 +54,5 @@ var operation = function (n1, n2, op) { return __awaiter(void 0, void 0, void 0,
     });
 }); };
 var operations = function (fun) { return fun; };
-var numbers = new numbers_1["default"](14, 6);
-operations(operation(numbers.getNumbers()[0], numbers.getNumbers()[1], 'resta')).then(function (res) { return console.log("El resultado es: " + res); });
+var numbers = new numbers_1["default"](10, 2);
+operations(operation(numbers.getNumbers()[0], numbers.getNumbers()[1], 'suma')).then(function (res) { return console.log("El resultado es: " + res); });

@@ -16,6 +16,6 @@ const operation = async (n1: number, n2: number, op: string): Promise<number | u
 const operations = (fun: Promise<number | undefined>) => fun;
 
 
-const numbers = new Numbers(14, 6);
+const numbers = new Numbers(10, 2);
 
-operations(operation(numbers.getNumbers()[0], numbers.getNumbers()[1], 'resta')).then(res => console.log(`El resultado es: ${res}`))
+operations(operation(numbers.getNumbers()[0], numbers.getNumbers()[1], 'suma')).then(res => console.log(`El resultado es: ${res}`))
