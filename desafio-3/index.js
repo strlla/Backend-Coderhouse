@@ -13,4 +13,5 @@ const getWords = (text, fun, sec = 1000) => {
 }
 
 const show = (w) => console.log(w);
+
 console.log(getWords('Hoy hace calor', show, 2000).then());
