@@ -1,17 +1,20 @@
 const getWords = (text, fun, sec = 1000) => {
     const words = text.split(' ');
     let countWords = words.length;
-
-    return new Promise((resolve, reject) => {
-        let i = 0;
+    let i = 0;
+    
         words.forEach((w) => {
-            setTimeout(()=>{
+            const interval = setInterval(()=>{
                 fun(w)
-            }, sec)
+                if( i >= countWords ){
+                    clearInterval(interval);
+                }
+                i++;  
+            }, sec)    
+  
         })
-    })
 }
 
 const show = (w) => console.log(w);
 
-console.log(getWords('Hoy hace calor', show, 2000).then());
+console.log(getWords('Kame hame ha', show, 4000));
