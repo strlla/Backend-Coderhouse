@@ -1,17 +1,24 @@
-const getWords = (text, fun, sec = 1000) => {
+const getWords = (text, fin, sec = 1000) => {
     const words = text.split(' ');
     let countWords = words.length;
     let i = 0;
     const interval = setInterval(()=>{
-        if (i > countWords){
-            clearInterval(interval);
+        if (i >= countWords) {
+            fin(interval, countWords) ;
         } else {
-            fun(words[i])
+            console.log(words[i]);
         }
         i++;  
-    }, sec)      
+    }, sec)
+}
+const fin = (interval, countWords) => {
+    clearInterval(interval);
+    console.log('Fin');
+    console.log('Total palabras: '+ countWords);
 }
 
-const show = (w) => console.log(w);
+getWords('Kame hame ha', fin, 4000);
 
-console.log(getWords('Kame hame ha', show, 4000));
+getWords('Hoy hace mucho calor', fin, 3000);
+
+getWords('Que ganas de que sea invierno', fin);
