@@ -1,0 +1,62 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <title>Desafío 4: Observables</title>
+    </head>
+    <body>
+        <main>
+            <div class="container">
+                <p class="h2">Desafío 4 - Observables - Consigna 2</p>
+                <div class="form-group">
+                    <label>Ingrese un texto:</label>
+                    <input type="text" class="form-control" id="input-text" placeholder="Hola...">
+                </div>
+                <p class="h4" id="mirror-word"></p>
+            </div>
+        </main>
+        <script type="module">
+            import {Observable, fromEvent} from 'https://dev.jspm.io/rxjs@6/_esm2015';
+            import {map, filter} from 'https://dev.jspm.io/rxjs@6/_esm2015/operators';
+
+            const input = document.getElementById('input-text');
+            const mirrorWord = document.getElementById('mirror-word');            
+            const observable = fromEvent(input, 'keyup');
+        
+            let mirrorText = '';
+
+            const subscription = observable.pipe(
+                filter(event => {
+                    if ((event.which <= 90 && event.which >= 48) || event.which === 32){
+                        return event
+                    }               
+                }),
+                map(event => {
+                    console.log(event);
+                    return event.key 
+                })    
+            ).subscribe(key => {
+                mirrorText += key;
+                mirrorWord.textContent = mirrorText.split('').reverse().join('');
+                
+                if(mirrorText === 'error'){
+                    subscription.error('Se ingresó la palabra [error]');
+                }
+
+                if(mirrorText === 'complete'){
+                    subscription.complete();
+                }
+
+                setTimeout(() =>{
+                    subscription.unsubscribe();
+                }, 30000)
+                //console.log(mirrorWord.textContent);
+            }, error => {
+                console.log(error);
+            }, () => {
+                console.log('Se ingresó la palabra [complete]');
+            });
+        </script>
+    </body>
+</html>
