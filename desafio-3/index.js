@@ -21,4 +21,4 @@ getWords('Kame hame ha', fin, 4000);
 
 getWords('Hoy hace mucho calor', fin, 3000);
 
-getWords('Que ganas de que sea invierno', fin);
+getWords('Hola', fin);
