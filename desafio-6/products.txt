@@ -1,0 +1,45 @@
+[
+    {
+        "id": "1",
+        "title": "The Queen's Gambit",
+        "author":"Walter Tevis",
+        "descripion": "NOW A MAJOR NETFLIX SERIES starring Anya Taylor-Joy from Academy-Award nominee Scott Frank and BAFTA nominee Allan Scott",
+        "price":"1200",
+        "format": "Paperback",
+        "language": "English",
+        "datePublished": "14 Apr 2016",
+        "thumbnail": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4746/9781474600842.jpg"
+    },
+    {
+        "id": 2,
+        "title": "The Man Who Fell to Earth",
+        "author": "Walter Tevis",
+        "description": "NOW A MAJOR NETFLIX SERIES starring Anya Taylor-Joy from Academy-Award nominee Scott Frank and BAFTA nominee Allan Scott",
+        "price": "1311.34",
+        "format": "Paperback",
+        "language": "English",
+        "datePublished": "14 Apr 2016",
+        "thumbnail": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4732/9781473213111.jpg"
+    },
+    {
+        "id": 3,
+        "title": "1984",
+        "author": "George Orwell",
+        "description": "Renowned urban artist Shepard Fairey's new look for Orwell's dystopian masterpiece",
+        "price": "1003.67",
+        "format": "Paperback",
+        "language": "English",
+        "datePublished": "01 Oct 2008",
+        "thumbnail": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9780/1410/9780141036144.jpg"
+    },
+    {
+        "id": 4,
+        "title": "Brave New World",
+        "author": "Aldous Huxley",
+        "description": "",
+        "format": "Paperback",
+        "language": "English",
+        "datePublished": "08 Mar 2019",
+        "thumbnail": "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9780/0994/9780099477464.jpg"
+    }
+]  
