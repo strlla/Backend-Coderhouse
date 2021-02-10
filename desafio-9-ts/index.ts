@@ -7,7 +7,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use('/api', RouterProducts);
 
-app.listen(3009, () => {
+app.listen(3002, () => {
     try {
         console.log('Se levantó el servidor')
     } catch (error) {

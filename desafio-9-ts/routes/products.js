@@ -28,7 +28,7 @@ router.get('/', function (req, res) {
 });
 router.get('/products', function (req, res) {
     console.log('request recibido');
-    res.send(products.getAllProducts());
+    res.json(products.getAllProducts());
 });
 router.put('/products/update/:id', function (req, res) {
     console.log('request recibido');
@@ -40,12 +40,13 @@ router["delete"]('/products/delete/:id', function (req, res) {
     console.log('request recibido');
     var id = req.params.id;
     var oldProduct = products.deleteProductById(id);
-    res.send(oldProduct);
+    res.json(oldProduct);
 });
 router.post('/products/add', function (req, res) {
     console.log('request recibido');
     var _a = req.body, title = _a.title, price = _a.price, thumbnail = _a.thumbnail, categoryId = _a.categoryId;
-    var newProduct = { id: (products.getAllProducts.length + 1).toString(), title: title, price: price, thumbnail: thumbnail, categoryId: categoryId };
+    var newProduct = { id: (products.getAllProducts().length + 1).toString(), title: title, price: price, thumbnail: thumbnail, categoryId: categoryId };
     products.addProduct(newProduct);
+    res.json({ msg: 'Se agregó el producto', newProduct: newProduct });
 });
 exports["default"] = router;

@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 
 router.get('/products', (req, res) => {
     console.log('request recibido');
-    res.send(products.getAllProducts());
+    res.json(products.getAllProducts());
 })
 
 router.put('/products/update/:id', (req, res) => {
@@ -33,15 +33,15 @@ router.delete('/products/delete/:id', (req, res) => {
     console.log('request recibido');
     const { id } = req.params;
     const oldProduct = products.deleteProductById(id);
-    res.send(oldProduct)
+    res.json(oldProduct)
 })
 
 router.post('/products/add', (req, res) => {
     console.log('request recibido');
     const { title, price, thumbnail, categoryId } = req.body;
-
-    const newProduct = {id: (products.getAllProducts.length + 1).toString(), title, price, thumbnail, categoryId}
+    const newProduct = {id: (products.getAllProducts().length + 1).toString(), title, price, thumbnail, categoryId}
     products.addProduct(newProduct);
+    res.json({msg: 'Se agregó el producto', newProduct})
 })
 
 export default router;

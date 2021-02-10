@@ -6,7 +6,7 @@ var app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/api', products_1["default"]);
-app.listen(3009, function () {
+app.listen(3002, function () {
     try {
         console.log('Se levantó el servidor');
     }
