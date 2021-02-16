@@ -1,26 +1,27 @@
-import * as express from 'express';
 import RouterProducts from './routes/products';
+import * as handlebars from 'express-handlebars';
+import * as express from 'express';
 
 const app = express();
 
 app.use(express.urlencoded({extended: true}));
-app.use(express.json());
 app.use('/api', RouterProducts);
+app.use(express.json());
 
-app.set('views', './views');
-app.set('view engine', 'ntl');
 app.use(express.static('public'));
+app.set('view engine', 'hbs');
+app.set('views', './views');
+
 
 //handlebars
-// app.engine("hbs", handlebars({
-//     extname: ".hbs",
-//     defaultLayout: "index.hbs", 
-//     layoutDir: __dirname + "/views/layouts",
-    
-// }))
+app.engine("hbs", handlebars({
+     extname: ".hbs",
+     defaultLayout: "index.hbs", 
+     layoutsDir: __dirname + "/views/layouts"
+}))
 
 
-app.listen(3000, () => {
+app.listen(3003, () => {
     try {
         console.log('Se levantó el servidor')
     } catch (error) {

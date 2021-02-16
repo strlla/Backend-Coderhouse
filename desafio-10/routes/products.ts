@@ -12,9 +12,10 @@ const products = new Products([
     {id: "6", title: 'Celular Libre Samsung Galaxy Note 20 Ultra Bronce', price: 145999, thumbnail: 'https://images.fravega.com/s500/7ebc2ea1b0d73950855a447acb96adf0.jpg', categoryId: 'celulares'}
 ]);
 
-router.get('/', (req, res) => {
+router.get('/products/vista', (req, res) => {
     console.log('request recibido');
-    res.sendFile('C:/Users/porto/Documents/coderhouse-backend/desafio-10/public/index.html');
+    res.render('index', {products: products.getAllProducts(), productsEmpty: false})
+    //res.sendFile('C:/Users/porto/Documents/coderhouse-backend/desafio-10/public/index.html');
 })
 
 router.get('/products', (req, res) => {

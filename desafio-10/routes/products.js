@@ -22,9 +22,10 @@ var products = new Products_1["default"]([
     { id: "5", title: 'Celular Libre Samsung Galaxy S20FE Lavanda', price: 79999, thumbnail: 'https://images.fravega.com/s500/46e47f3f4ca8e2abca5628d7fde4d569.jpg', categoryId: 'celulares' },
     { id: "6", title: 'Celular Libre Samsung Galaxy Note 20 Ultra Bronce', price: 145999, thumbnail: 'https://images.fravega.com/s500/7ebc2ea1b0d73950855a447acb96adf0.jpg', categoryId: 'celulares' }
 ]);
-router.get('/', function (req, res) {
+router.get('/products/vista', function (req, res) {
     console.log('request recibido');
-    res.sendFile('C:/Users/porto/Documents/coderhouse-backend/desafio-10/public/index.html');
+    res.render('index', { products: products.getAllProducts(), productsEmpty: false });
+    //res.sendFile('C:/Users/porto/Documents/coderhouse-backend/desafio-10/public/index.html');
 });
 router.get('/products', function (req, res) {
     console.log('request recibido');
